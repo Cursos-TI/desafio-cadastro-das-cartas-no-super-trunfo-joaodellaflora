@@ -1,0 +1,11 @@
+# Arquivos executáveis
+*.exe
+*.out
+*.o
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Configurações do VS Code (opcional)
+.vscode/
