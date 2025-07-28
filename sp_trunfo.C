@@ -9,7 +9,8 @@ int populacao = 0;
 float area = 0;
 float pib = 0;
 int nro_pontos_turisticos = 0;
-
+float densidade_populacional1 = 0;
+float pib_per_capita1 = 0;
 
 printf("Carta do Trunfo - 1\n");
 // Solicita os dados da carta
@@ -41,6 +42,16 @@ printf("Digite o numero de pontos turisticos: ");
 // Solicita o numero de pontos turisticos
 scanf("%d", &nro_pontos_turisticos);
 
+//Calcular densidade populacional
+
+densidade_populacional1 = populacao / area;
+
+//Calcular PIB per capita
+
+pib_per_capita1 = pib / populacao;
+
+
+
 // Exibe os dados da primeira carta
 printf("Carta do Trunfo - 1\n");
 
@@ -52,13 +63,18 @@ printf("Nome da cidade: %s\n", nome_cidade);
 
 printf("Populacao: %d\n", populacao);
 
-printf("Area: %f\n", area);
+printf("Area: %.2f\n", area);
 
-printf("PIB: %f\n", pib);
+printf("PIB: %.2f\n", pib);
 
 printf("Numero de pontos turisticos: %d\n", nro_pontos_turisticos);
 
+printf("Densidade populacional: %.2f hab/km²\n", densidade_populacional1);
+
+printf("PIB per capita: %.2f reais\n", pib_per_capita1);
+
 printf("\n");
+
 
 // Repetindo o processo para a segunda carta
 
@@ -92,6 +108,12 @@ printf("Digite o numero de pontos turisticos: ");
 
 scanf("%d", &nro_pontos_turisticos);
 
+//Calcular densidade populacional
+densidade_populacional1 = populacao / area;
+
+//Calcular PIB per capita
+pib_per_capita1 = pib / populacao;
+
 // Exibe os dados da segunda carta
 
 printf("Carta do Trunfo - 2\n");
@@ -104,12 +126,17 @@ printf("Nome da cidade: %s\n", nome_cidade);
 
 printf("Populacao: %d\n", populacao);
 
-printf("Area: %f\n", area);
+printf("Area: %.2f\n", area);
 
-printf("PIB: %f\n", pib);
+printf("PIB: %.2f\n", pib);
 
 printf("Numero de pontos turisticos: %d\n", nro_pontos_turisticos);
 
+printf("Densidade populacional: %.2f hab/km²\n", densidade_populacional1);
+
+printf("PIB per capita: %.2f reais\n", pib_per_capita1);
+
+printf("\n");
 return 0;
 
 }
