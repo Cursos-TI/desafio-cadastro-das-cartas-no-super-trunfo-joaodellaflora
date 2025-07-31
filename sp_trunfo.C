@@ -4,9 +4,13 @@ int main() {
     // Variaveis para armazenar os dados da carta
 char estado[50];
 
+char estado2[50];
+
 char codigo_carta[10];
 
 char nome_cidade[100];
+
+char nome_cidade2[100];
 
 unsigned long int populacao1 = 0;
 
@@ -40,8 +44,11 @@ float super_poder1 = 0;
 
 float super_poder2 = 0;
 
-//-----------------------------------------------//
 
+int comparacao;
+
+//-----------------------------------------------------------------------------------------------------------------------------//
+// Solicita os dados da primeira carta
 
 printf("Carta do Trunfo - 1\n");
 // Solicita os dados da carta
@@ -87,35 +94,7 @@ inverso_densidade_populacional1 = area1 / populacao1;
 //Calcular super poder
 super_poder1 = populacao1 + area1 + pib1 + nro_pontos_turisticos1 + densidade_populacional1 + pib_per_capita1 + inverso_densidade_populacional1;
 
-//------------------------------------------------------------------------------------------------------------------//
-
-// Exibe os dados da primeira carta
-
-printf("Carta do Trunfo - 1\n");
-
-printf("\nEstado: %s\n", estado);
-
-printf("Codigo da carta: %s\n", codigo_carta);
-
-printf("Nome da cidade: %s\n", nome_cidade);
-
-printf("Populacao: %lu\n", populacao1);
-
-printf("Area: %.2f\n", area1);
-
-printf("PIB: %.2f\n", pib1);
-
-printf("Numero de pontos turisticos: %d\n", nro_pontos_turisticos1);
-
-printf("Densidade populacional: %.2f hab/km²\n", densidade_populacional1);
-
-printf("PIB per capita: %.2f reais\n", pib_per_capita1);
-
-// Exibir super poder
-printf("Super Poder: %.2f\n", super_poder1);
-
 printf("\n");
-
 //------------------------------------------------------------------------------------------------------------------//
 
 // Repetindo o processo para a segunda carta
@@ -124,7 +103,7 @@ printf("Carta do Trunfo - 2\n");
 
 printf("Digite o estado: ");
 
-scanf("%s", estado);
+scanf("%s", estado2);
 
 printf("Digite o codigo da carta: ");
 
@@ -132,7 +111,7 @@ scanf("%s", codigo_carta);
 
 printf("Digite o nome da cidade: ");
 
-scanf("%s", nome_cidade);
+scanf("%s", nome_cidade2);
 
 printf("Digite a populacao: ");
 
@@ -164,17 +143,46 @@ super_poder2 = populacao2 + area2 + pib2 + nro_pontos_turisticos2 + densidade_po
 
 printf("\n");
 
-//------------------------------------------------------------------------------------------------------------------//
+//-----------------------------------------------------------------------------------------------------------------------------//
 
-// Exibe os dados da segunda carta
+// Exibe os dados da primeira carta
 
-printf("Carta do Trunfo - 2\n");
+printf("Carta do Trunfo - 1\n");
 
 printf("\nEstado: %s\n", estado);
 
 printf("Codigo da carta: %s\n", codigo_carta);
 
 printf("Nome da cidade: %s\n", nome_cidade);
+
+printf("Populacao: %lu\n", populacao1);
+
+printf("Area: %.2f\n", area1);
+
+printf("PIB: %.2f\n", pib1);
+
+printf("Numero de pontos turisticos: %d\n", nro_pontos_turisticos1);
+
+printf("Densidade populacional: %.2f hab/km²\n", densidade_populacional1);
+
+printf("PIB per capita: %.2f reais\n", pib_per_capita1);
+
+// Exibir super poder
+printf("Super Poder: %.2f\n", super_poder1);
+
+printf("\n");
+
+//------------------------------------------------------------------------------------------------------------------//
+
+// Exibe os dados da segunda carta
+
+printf("Carta do Trunfo - 2\n");
+
+printf("\nEstado: %s\n", estado2);
+
+printf("Codigo da carta: %s\n", codigo_carta);
+
+printf("Nome da cidade: %s\n", nome_cidade2);
 
 printf("Populacao: %lu\n", populacao2);
 
@@ -193,34 +201,53 @@ printf("Super Poder: %.2f\n", super_poder2);
 
 printf("\n");
 
+//-----------------------------------------------------------------------------------------------------------------------------//
 
-//Comparar as cartas
+//Comparação de atributos
+
+if (area1 > area2) {
+    printf("A carta 1- %s, %s, %.2f.\n", estado, nome_cidade, area1);
+    printf("A carta 2- %s, %s, %.2f.\n", estado2, nome_cidade2, area2);
+    printf("A carta 1 possui valor maior de area.\n");
+} else if (area1 < area2) {
+    printf("A carta 1- %s, %s, %.2f.\n", estado, nome_cidade, area1);
+    printf("A carta 2- %s, %s, %.2f.\n", estado2, nome_cidade2, area2);
+    printf("A carta 2 possui valor maior de area.\n");
+} else {
+    printf("A carta 1- %s, %s, %.2f.\n", estado, nome_cidade, area1);
+    printf("A carta 2- %s, %s, %.2f.\n", estado2, nome_cidade2, area2);
+    printf("As cartas possuem a mesma area.\n");
+}
+//-----------------------------------------------------------------------------------------------------------------------------//
+//Comparar densidade populacional
+if (densidade_populacional1 > densidade_populacional2) {
+    printf("A carta 1- %s, %s, %.2f.\n", estado, nome_cidade, densidade_populacional1);
+    printf("A carta 2- %s, %s, %.2f.\n", estado2, nome_cidade2, densidade_populacional2);
+    printf("A carta 1 possui maior densidade populacional.\n");
+} else if (densidade_populacional1 < densidade_populacional2) {
+    printf("A carta 1- %s, %s, %.2f.\n", estado, nome_cidade, densidade_populacional1);
+    printf("A carta 2- %s, %s, %.2f.\n", estado2, nome_cidade2, densidade_populacional2);
+    printf("A carta 2 possui maior densidade populacional.\n");
+} else {
+    printf("A carta 1- %s, %s, %.2f.\n", estado, nome_cidade, densidade_populacional1);
+    printf("A carta 2- %s, %s, %.2f.\n", estado2, nome_cidade2, densidade_populacional2);
+    printf("As cartas possuem a mesma densidade populacional.\n");
+}
+
+int resultadoB = (densidade_populacional1 < densidade_populacional2) ? 1 : (densidade_populacional1 > densidade_populacional2) ? 2 : 0;
+// Exibir o resultado da comparação
+printf(resultadoB == 1 ? "A carta 1 com menor densidade populacional é a vencedora.\n" : "A carta 2 com menor densidade populacional é vencedora.\n");
+printf("\n");
 
 
-int resultadoA = 0;
-resultadoA = populacao1 > populacao2;
-printf("A carta com maior populacao é: %s\n", resultadoA ? "Carta 1" : "Carta 2");
-
-resultadoA = area1 > area2;
-printf("A carta com maior area é: %s\n", resultadoA ? "Carta 1" : "Carta 2");
-
-resultadoA = pib1 > pib2;
-printf("A carta com maior PIB é: %s\n", resultadoA ? "Carta 1" : "Carta 2");
-
-resultadoA = nro_pontos_turisticos1 > nro_pontos_turisticos2;
-printf("A carta com maior numero de pontos turisticos é: %s\n", resultadoA ? "Carta 1" : "Carta 2");
-
-resultadoA = densidade_populacional1 > densidade_populacional2;
-printf("A carta com maior densidade populacional é: %s\n", resultadoA ? "Carta 1" : "Carta 2");
-
-resultadoA = pib_per_capita1 > pib_per_capita2;
-printf("A carta com maior PIB per capita é: %s\n", resultadoA ? "Carta 1" : "Carta 2");
-
-resultadoA = super_poder1 > super_poder2;
-printf("A carta com maior super poder é: %s\n", resultadoA ? "Carta 1" : "Carta 2");
+// Resultado da comparação
+//int resultadoA = (area1 > area2) ? 1 : (area1 < area2) ? 2 : 0;
+// Exibir o resultado da comparação
+//printf(resultadoA == 1 ? "A carta 1 é vencedora.\n" : "A carta 2 é vencedora.\n");
+//printf("\n");
 
 
 
-return 0;
+
 
 }
